@@ -1,0 +1,87 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+#wrapper{
+  height:100vh;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+.container{
+  height:100%;
+  max-width:1200px;
+  margin:0 auto; 
+  /* upar wale line se container center mai ho jayega uske items nhi */
+  padding:20px;
+}
+
+.container h1{
+  margin: 10px 100px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 3rem; 
+}
+
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  /* agar wo same row mai jo by default rhta hai place nhi ho paye then wo next row mai aa jayega */
+  justify-content: space-between;
+}
+
+
+.card {
+  width:32%;
+  /* total width 100% hai to hum ek line mai 3 pic chahte hai esliye I have used 32% of the total 100% width jisse mere 3 images ek line mai aa paye.isme card ka width 32% hoga image ko dekhna hoga thora--image overflow basically */
+  position:relative;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;  
+}
+
+.card img{
+  
+  width:100%;
+  height:100%;
+  filter: grayscale(100%);
+  box-shadow: 0 0 20px #333;
+  object-fit: cover;
+}
+
+
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.5s;
+  filter: drop-shadow(0 0 10px #333);
+}
+
+
+.card:hover img {
+  filter: grayscale(0%);
+}
+
+.card figcaption{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 25px;
+  width: 100%;
+  height: 20%;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0;
+  /* upar opacity 0 ke karan image dikhega he nhi */
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  transition: 0.3s;
+}
+
+.card:hover figcaption {
+  opacity: 1;
+  transform: scale(1.03);
+}   
